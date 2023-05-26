@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Neves07's website</title>
+    <link rel="stylesheet" type="text/css" href="style.css">
+</head>
+<body>
+	<div id="player"></div>
+    <header>
+		<h2>neves0741's website</h2>
+        <h1>Welcome to my website :)</h1>
+    </header>
+    
+    <nav>
+        <ul>
+            <li><a href="https://discord.gg/wFJGvhrsXj">Discord</a></li>
+            <li><a href="https://www.youtube.com/@neves0741">YouTube</a></li>
+            <li><a href="https://github.com/MiguelNeves07">GitHub</a></li>
+        </ul>
+    </nav>
+    
+    <main>
+	<h1> 
+</script>
+    </main>
+    
+    <footer>
+        <p>&copy; 2023 neves0741</p>
+    </footer>
+</body>
+</html>
