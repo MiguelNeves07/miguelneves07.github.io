@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Morse.exe</title>
+  <style>
+    body {
+      background-color: black;
+      color: green;
+      text-align: center;
+      padding-top: 100px;
+      font-family: Arial, sans-serif;
+    }
+    
+    h1 {
+      font-size: 24px;
+      margin-bottom: 20px;
+    }
+    
+    button {
+      background-color: green;
+      color: white;
+      padding: 10px 20px;
+      font-size: 16px;
+      border: none;
+      cursor: pointer;
+    }
+    
+    button:hover {
+      background-color: darkgreen;
+    }
+  </style>
+</head>
+<body>
+  <h1>OLÁ! Seja bem-vindo ao Morse.exe</h1>
+  <button onclick="downloadFile()">Baixar arquivo</button>
+
+  <script>
+    function downloadFile() {
+      // Nome do arquivo que você deseja baixar
+      var fileName = '1.exe';
+      
+      // Cria um link invisível para iniciar o download
+      var downloadLink = document.createElement('a');
+      downloadLink.href = 'download/' + fileName;
+      downloadLink.download = fileName;
+      downloadLink.style.display = 'none';
+      
+      // Adiciona o link ao documento HTML e clica nele para iniciar o download
+      document.body.appendChild(downloadLink);
+      downloadLink.click();
+      
+      // Remove o link do documento após o download
+      document.body.removeChild(downloadLink);
+    }
+  </script>
+</body>
+</html>
