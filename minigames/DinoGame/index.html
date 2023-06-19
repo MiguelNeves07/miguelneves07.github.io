@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Dino Game</title>
+    <style>
+      #canvas {
+        border: 1px solid #000;
+      }
+      body {
+        font-family: Arial, sans-serif;
+      }
+    </style>
+	<li><a href="../index.html"><i class="fas fa-arrow-left"></i> Leave</a></li>
+  </head>
+  <body>
+    <h1>Dino Game</h1>
+    <p>By miguelneves07</p>
+    <canvas id="canvas" width="600" height="150"></canvas>
+
+    <script>
+      // Game settings
+      const canvas = document.getElementById('canvas');
+      const ctx = canvas.getContext('2d');
+      let running = true;
+      let score = 0;
+      let highScore = localStorage.getItem('highScore') || 0;
+      const obstacles = [];
+
+      // Dino
+      const dino = {
+        x: 50,
+        y: 0,
+        width: 50,
+        height: 50,
+        jumpHeight: 100,
+        gravity: 6,
+        isJumping: false,
+        jump() {
+          if (!this.isJumping) {
+            this.isJumping = true;
+            const jumpInterval = setInterval(() => {
+              if (this.y >= this.jumpHeight) {
+                clearInterval(jumpInterval);
+                const fallInterval = setInterval(() => {
+                  if (this.y <= 0) {
+                    clearInterval(fallInterval);
+                    this.isJumping = false;
+                  } else {
+                    this.y -= this.gravity;
+                  }
+                }, 20);
+              } else {
+                this.y += this.gravity;
+              }
+            }, 20);
+          }
+        },
+        draw() {
+          ctx.fillStyle = 'green';
+          ctx.fillRect(this.x, canvas.height - this.y - this.height, this.width, this.height);
+        }
+      };
+
+      // Obstacle class
+      class Obstacle {
+        constructor() {
+          this.x = canvas.width;
+          this.y = 0;
+          this.width = 50;
+          this.height = 50;
+        }
+
+        draw() {
+          ctx.fillStyle = 'red';
+          ctx.fillRect(this.x, canvas.height - this.y - this.height, this.width, this.height);
+        }
+
+        update() {
+          this.x -= 5;
+        }
+      }
+
+      // Generate obstacles function
+      function generateObstacle() {
+        const obstacle = new Obstacle();
+        obstacles.push(obstacle);
+      }
+
+      // Main game loop
+      function gameLoop() {
+        if (!running) {
+          return;
+        }
+
+        // Updates
+        score++;
+
+        // Update high score
+        if (score > highScore) {
+          highScore = score;
+          localStorage.setItem('highScore', highScore);
+        }
+
+        // Generate obstacles
+        if (score % 100 === 0) {
+          generateObstacle();
+        }
+
+        // Update obstacles
+        obstacles.forEach((obstacle, index) => {
+          obstacle.update();
+
+          // Check collision
+          if (
+            dino.x < obstacle.x + obstacle.width &&
+            dino.x + dino.width > obstacle.x &&
+            dino.y < obstacle.y + obstacle.height &&
+            dino.y + dino.height > obstacle.y
+          ) {
+            running = false;
+            console.log('Game Over! Score: ' + score);
+          }
+
+          // Remove offscreen obstacles
+          if (obstacle.x + obstacle.width < 0) {
+            obstacles.splice(index, 1);
+          }
+        });
+
+        // Clear the canvas
+        ctx.clearRect(0, 0, canvas.width, canvas.height);
+
+        // Draw dino and obstacles
+        dino.draw();
+        obstacles.forEach(obstacle => obstacle.draw());
+
+        // Draw score and high score
+        ctx.font = '16px Arial';
+        ctx.fillStyle = '#000';
+        ctx.fillText('Score: ' + score, 10, 20);
+        ctx.fillText('High Score: ' + highScore, 10, 40);
+
+        // Game loop
+        requestAnimationFrame(gameLoop);
+      }
+
+      // Dino control
+      document.addEventListener('keydown', function (event) {
+        if (event.code === 'Space') {
+          dino.jump();
+        }
+      });
+
+      // Start the game
+      gameLoop();
+    </script>
+  </body>
+</html>
