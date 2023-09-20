@@ -1,0 +1,32 @@
+body {
+    font-family: Arial, sans-serif;
+    background-color: #1E90FF; /* Um tom de azul brilhante */
+    color: #FFFFFF; /* Texto branco */
+    text-align: center;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    font-size: 36px;
+}
+
+.buttons {
+    margin-top: 20px;
+}
+
+.button {
+    background-color: #0000FF; /* Azul "buuum" */
+    color: #FFFFFF;
+    font-size: 18px;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    margin: 5px;
+    cursor: pointer;
+    text-decoration: none; /* Removendo a sublinhado padrão dos links */
+}
+
+.button:hover {
+    background-color: #00008B; /* Tom mais escuro de azul no hover */
+}

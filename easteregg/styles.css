@@ -1,0 +1,42 @@
+/* Estilo para o corpo da página */
+body {
+    font-family: Arial, sans-serif;
+    background-color: #f0f0f0;
+    text-align: center;
+}
+
+/* Estilo para o título h1 */
+h1 {
+    color: #ff6600;
+    font-size: 36px;
+    margin-top: 20px;
+}
+
+/* Estilo para o parágrafo p */
+p {
+    font-size: 18px;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+/* Estilo para a imagem */
+img {
+    width: 200px;
+    height: 200px;
+    border-radius: 10px; /* Bordas arredondadas para a imagem */
+}
+
+/* Estilo para o botão de voltar */
+.back-button {
+    display: inline-block;
+    padding: 10px 20px;
+    background-color: #ff6600;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 10px; /* Bordas arredondadas */
+}
+
+/* Estilo para quando o cursor passar por cima do botão */
+.back-button:hover {
+    background-color: #e55e00; /* Cor de fundo alterada ao passar o cursor */
+}
