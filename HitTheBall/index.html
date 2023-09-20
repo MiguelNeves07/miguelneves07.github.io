@@ -1,19 +1,20 @@
 <!DOCTYPE html>
-<html lang="pt-BR">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>OH WOW</title>
-    <link rel="stylesheet" type="text/css" href="styles.css">
+    <link rel="stylesheet" href="style.css">
+    <title>Hit-The-Ball</title>
+	<li><a href="../index.html"><i class="fas fa-arrow-left"></i>Leave</a></li>
 </head>
 <body>
-    <h1>OH WOW</h1>
-    <p>LITERALMENTE um easter egg, LITERALMENTE!!!!</p>
-    <img src="https://upload.wikimedia.org/wikipedia/commons/e/e5/Easter-Eggs_no_background.png" alt="Easter Egg">
-    
-    <!-- Link de voltar com ícone -->
-    <ul>
-        <li><a href="../index.html"><i class="fas fa-arrow-left"></i>Leave</a></li>
-    </ul>
+    <div class="game-container">
+        <div class="note"></div>
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="errors">Errors: <span id="errors">0</span></div>
+    </div>
+    <audio src="song.mp3" id="music"></audio>
+    <audio src="hitsound.mp3" id="hit-sound"></audio>
+    <script src="script.js"></script>
 </body>
 </html>
