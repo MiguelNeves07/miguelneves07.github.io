@@ -1,0 +1,83 @@
+/* CSS para o body */
+body {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    height: 100vh;
+    margin: 0;
+    background-color: #f0f0f0;
+    font-family: Arial, sans-serif;
+}
+
+/* CSS para o botão "Iniciar Jogo" */
+#start-button {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #3498db;
+    color: #fff;
+    border: none;
+    border-radius: 20px; /* Bordas circulares para o botão */
+    cursor: pointer;
+    margin-bottom: 20px;
+}
+
+/* CSS para o alvo */
+.target {
+    width: 100px;
+    height: 100px;
+    background-color: red;
+    border-radius: 50%;
+    cursor: pointer;
+    position: absolute;
+    animation: shake 0.2s linear infinite;
+}
+
+@keyframes shake {
+    0% { transform: translate(0, 0); }
+    25% { transform: translate(5px, -5px); }
+    50% { transform: translate(0, 0); }
+    75% { transform: translate(-5px, 5px); }
+    100% { transform: translate(0, 0); }
+}
+
+/* CSS para os parágrafos */
+p {
+    margin-top: 20px;
+    font-size: 20px;
+}
+
+#timer {
+    font-weight: bold;
+}
+
+#score {
+    font-weight: bold;
+}
+
+/* CSS para o footer (igual ao botão "Iniciar Jogo") */
+footer {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+}
+
+footer ul {
+    list-style: none;
+    padding: 0;
+}
+
+footer ul li {
+    margin-right: 10px;
+}
+
+footer ul li a {
+    text-decoration: none;
+    background-color: #3498db;
+    color: #fff;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 20px; /* Bordas circulares para o botão de "Voltar" */
+    cursor: pointer;
+}
