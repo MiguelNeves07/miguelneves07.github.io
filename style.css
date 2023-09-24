@@ -13,7 +13,7 @@ h1 {
 }
 
 .buttons {
-    margin-top: 20px;
+    margin-top: 40px; /* Aumenta o espaço entre o título e os botões */
 }
 
 .button {
@@ -26,6 +26,7 @@ h1 {
     margin: 5px;
     cursor: pointer;
     text-decoration: none; /* Removendo a sublinhado padrão dos links */
+    display: inline-block; /* Faz os botões se comportarem como blocos em linha */
 }
 
 .button:hover {
@@ -43,12 +44,14 @@ h1 {
     }
 
     .buttons {
-        margin-top: 10px; /* Reduz o espaço entre os botões */
+        margin-top: 20px; /* Reduz o espaço entre os botões em telas menores */
     }
 
     .button {
         font-size: 16px; /* Reduz o tamanho dos botões */
         padding: 8px 16px; /* Reduz o preenchimento dos botões */
+        width: 100%; /* Faz com que os botões ocupem a largura completa do contêiner */
+        margin-bottom: 10px; /* Adiciona espaço entre os botões na vertical */
     }
 }
 
